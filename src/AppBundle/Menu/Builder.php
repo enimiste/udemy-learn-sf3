@@ -23,7 +23,26 @@ class Builder {
 		$menu = $factory->createItem( 'root' );
 		$menu->setChildrenAttribute( 'class', 'nav navbar-nav' );
 		$menu->addChild( 'Home', [ 'route' => 'homepage' ] );
-		$menu->addChild( 'Offer', [ 'route' => 'offer' ] );
+		$menu->addChild( 'Offer',
+			[
+				'route'  => 'offer',
+				'extras' => [
+					'routes' => [
+						[ 'route' => 'show_car' ],
+					],
+				],
+			] );
+		$menu->addChild( 'Manage Cars',
+			[
+				'route'  => 'car_index',
+				'extras' => [
+					'routes' => [
+						[ 'route' => 'car_new' ],
+						[ 'route' => 'car_show' ],
+						[ 'route' => 'car_edit' ],
+					],
+				],
+			] );
 
 		return $menu;
 	}
