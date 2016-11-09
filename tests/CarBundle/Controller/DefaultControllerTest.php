@@ -10,8 +10,8 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/');
+        $crawler = $client->request('GET', '/our-cars');
 
-        $this->assertContains('Hello World', $client->getResponse()->getContent());
+        $this->assertContains('Our offer', $client->getResponse()->getContent());
     }
 }
