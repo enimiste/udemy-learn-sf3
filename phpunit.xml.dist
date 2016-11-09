@@ -8,8 +8,8 @@
          bootstrap="app/autoload.php"
 >
     <php>
-        <ini name="error_reporting" value="-1" />
-        <server name="KERNEL_DIR" value="app/" />
+        <ini name="error_reporting" value="-1"/>
+        <server name="KERNEL_DIR" value="app/"/>
     </php>
 
     <testsuites>
@@ -23,9 +23,18 @@
             <directory>src</directory>
             <exclude>
                 <directory>src/*Bundle/Resources</directory>
+                <directory>src/*Bundle/Tests</directory>
                 <directory>src/*/*Bundle/Resources</directory>
                 <directory>src/*/Bundle/*Bundle/Resources</directory>
             </exclude>
         </whitelist>
     </filter>
+
+    <logging>
+        <log type="coverage-html" target="./build/coverage" title="Autotrader coverage report"
+             charset="UTF-8" jui="true" highlight="true"/>
+        <log type="coverage-clover" target="./build/logs/clover.xml"/>
+        <log type="junit" target="./build/logs/junit.xml"/>
+        <log type="testdox-html" target="./build/logs/testdox.html"/>
+    </logging>
 </phpunit>
