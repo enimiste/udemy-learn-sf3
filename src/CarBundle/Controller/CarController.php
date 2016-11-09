@@ -75,6 +75,31 @@ class CarController extends Controller {
 	}
 
 	/**
+	 * Promote a car
+	 *
+	 * @param int $id
+	 * @Route("/promote/{id}", name="car_promote")
+	 * @Method("GET")
+	 *
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 */
+	public function promoteAction( $id ) {
+
+		$dataChecker = $this->get( 'car.data_checker' );
+		$car         = $this->getDoctrine()
+		                    ->getRepository( 'CarBundle:Car' )
+		                    ->find( $id );
+		$result      = $dataChecker->checkCar( $car );
+		if ( $result ) {
+			$this->addFlash( 'success', 'Car promoted' );
+		} else {
+			$this->addFlash( 'warning', 'Car not applicable' );
+		}
+
+		return $this->redirectToRoute( 'car_index' );
+	}
+
+	/**
 	 * Displays a form to edit an existing car entity.
 	 *
 	 * @Route("/{id}/edit", name="car_edit")

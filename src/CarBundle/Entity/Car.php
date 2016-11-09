@@ -59,6 +59,26 @@ class Car {
 	private $navigation;
 
 	/**
+	 * @var bool
+	 * @ORM\Column(name="promoted", type="boolean")
+	 */
+	private $promoted;
+
+	/**
+	 * @return boolean
+	 */
+	public function isPromoted() {
+		return $this->promoted;
+	}
+
+	/**
+	 * @param boolean $promoted
+	 */
+	public function setPromoted( $promoted ) {
+		$this->promoted = $promoted;
+	}
+
+	/**
 	 * @return mixed
 	 */
 	public function getPrice() {
@@ -124,61 +144,56 @@ class Car {
 		return $this->id;
 	}
 
-    /**
-     * Get navigation
-     *
-     * @return boolean
-     */
-    public function getNavigation()
-    {
-        return $this->navigation;
-    }
+	/**
+	 * Get navigation
+	 *
+	 * @return boolean
+	 */
+	public function getNavigation() {
+		return $this->navigation;
+	}
 
-    /**
-     * Set model
-     *
-     * @param \CarBundle\Entity\Model $model
-     *
-     * @return Car
-     */
-    public function setModel(\CarBundle\Entity\Model $model = null)
-    {
-        $this->model = $model;
+	/**
+	 * Set model
+	 *
+	 * @param \CarBundle\Entity\Model $model
+	 *
+	 * @return Car
+	 */
+	public function setModel( \CarBundle\Entity\Model $model = null ) {
+		$this->model = $model;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get model
-     *
-     * @return \CarBundle\Entity\Model
-     */
-    public function getModel()
-    {
-        return $this->model;
-    }
+	/**
+	 * Get model
+	 *
+	 * @return \CarBundle\Entity\Model
+	 */
+	public function getModel() {
+		return $this->model;
+	}
 
-    /**
-     * Set make
-     *
-     * @param \CarBundle\Entity\Make $make
-     *
-     * @return Car
-     */
-    public function setMake(\CarBundle\Entity\Make $make = null)
-    {
-        $this->make = $make;
+	/**
+	 * Set make
+	 *
+	 * @param \CarBundle\Entity\Make $make
+	 *
+	 * @return Car
+	 */
+	public function setMake( \CarBundle\Entity\Make $make = null ) {
+		$this->make = $make;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get make
-     *
-     * @return \CarBundle\Entity\Make
-     */
-    public function getMake()
-    {
-        return $this->make;
-    }
+	/**
+	 * Get make
+	 *
+	 * @return \CarBundle\Entity\Make
+	 */
+	public function getMake() {
+		return $this->make;
+	}
 }

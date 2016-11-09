@@ -5,14 +5,15 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Year</th>
-                <th>Navigation</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Year</th>
+            <th>Navigation</th>
+            <th>Promoted</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for car in cars %}
@@ -21,7 +22,8 @@
                 <td>{{ car.description }}</td>
                 <td>{{ car.price }}</td>
                 <td>{{ car.year }}</td>
-                <td>{% if car.navigation %}Yes{% else %}No{% endif %}</td>
+                <td><span class="glyphicon glyphicon-{% if car.navigation %}ok{% else %}remove{% endif %}"></span></td>
+                <td><span class="glyphicon glyphicon-{% if car.promoted %}ok-circle{% else %}ban-circle{% endif %}"></span></td>
                 <td>
                     <ul>
                         <li>
@@ -29,6 +31,9 @@
                         </li>
                         <li>
                             <a href="{{ path('car_edit', { 'id': car.id }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('car_promote', { 'id': car.id }) }}">promote</a>
                         </li>
                     </ul>
                 </td>
