@@ -11,7 +11,7 @@ services:
     car.command.data_check:
         class: CarBundle\Command\AbcCheckCarsCommand
         arguments:
-            - "@car.data_checker"
             - "@doctrine.orm.entity_manager"
+            - "@car.data_checker"
         tags:
             - { name: console.command }
