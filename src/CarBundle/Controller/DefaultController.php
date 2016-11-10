@@ -23,8 +23,6 @@ class DefaultController extends Controller {
 		$rep = $this->getDoctrine()
 		            ->getRepository( 'CarBundle:Car' );
 
-		$cars = $rep->findCarsWithDetails();
-
 		$form = $this->createFormBuilder()
 		             ->setMethod( 'GET' )
 		             ->add( 'search',
@@ -37,10 +35,17 @@ class DefaultController extends Controller {
 			             ] )
 		             ->getForm();
 
+		$q = '';
 		$form->handleRequest( $request );
 		if ( $form->isSubmitted() && $form->isValid() ) {
-			//TODO
+			$q = $form->getData()['search'];
 		}
+
+		$cars = $rep->findCarsWithDetails( [
+			'model'       => $q,
+			'make'        => $q,
+			'description' => $q,
+		] );
 
 		return [ 'cars' => $cars, 'form' => $form->createView() ];
 	}
