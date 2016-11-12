@@ -56,13 +56,13 @@ class Car {
 	 * @var bool
 	 * @ORM\Column(name="navigation", type="boolean")
 	 */
-	private $navigation;
+	private $navigation = false;
 
 	/**
 	 * @var bool
 	 * @ORM\Column(name="promoted", type="boolean")
 	 */
-	private $promoted;
+	private $promoted = false;
 
 	/**
 	 * @return boolean
