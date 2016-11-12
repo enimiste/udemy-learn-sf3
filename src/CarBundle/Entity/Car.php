@@ -65,62 +65,6 @@ class Car {
 	private $promoted = false;
 
 	/**
-	 * @return boolean
-	 */
-	public function isPromoted() {
-		return $this->promoted;
-	}
-
-	/**
-	 * @param boolean $promoted
-	 */
-	public function setPromoted( $promoted ) {
-		$this->promoted = $promoted;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getPrice() {
-		return $this->price;
-	}
-
-	/**
-	 * @param mixed $price
-	 */
-	public function setPrice( $price ) {
-		$this->price = $price;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getYear() {
-		return $this->year;
-	}
-
-	/**
-	 * @param int $year
-	 */
-	public function setYear( $year ) {
-		$this->year = $year;
-	}
-
-	/**
-	 * @return boolean
-	 */
-	public function isNavigation() {
-		return $this->navigation;
-	}
-
-	/**
-	 * @param boolean $navigation
-	 */
-	public function setNavigation( $navigation ) {
-		$this->navigation = $navigation;
-	}
-
-	/**
 	 * @return string
 	 */
 	public function getDescription() {
@@ -132,6 +76,8 @@ class Car {
 	 */
 	public function setDescription( $description ) {
 		$this->description = $description;
+
+		return $this;
 	}
 
 
@@ -195,5 +141,84 @@ class Car {
 	 */
 	public function getMake() {
 		return $this->make;
+	}
+
+	/**
+	 * Set price
+	 *
+	 * @param string $price
+	 *
+	 * @return Car
+	 */
+	public function setPrice( $price ) {
+		$this->price = $price;
+
+		return $this;
+	}
+
+	/**
+	 * Get price
+	 *
+	 * @return string
+	 */
+	public function getPrice() {
+		return $this->price;
+	}
+
+	/**
+	 * Get promoted
+	 *
+	 * @return boolean
+	 */
+	public function getPromoted() {
+		return $this->promoted;
+	}
+
+	/**
+	 * Set navigation
+	 *
+	 * @param boolean $navigation
+	 *
+	 * @return Car
+	 */
+	public function setNavigation( $navigation ) {
+		$this->navigation = $navigation;
+
+		return $this;
+	}
+
+	/**
+	 * Set promoted
+	 *
+	 * @param boolean $promoted
+	 *
+	 * @return Car
+	 */
+	public function setPromoted( $promoted ) {
+		$this->promoted = $promoted;
+
+		return $this;
+	}
+
+	/**
+	 * Set year
+	 *
+	 * @param integer $year
+	 *
+	 * @return Car
+	 */
+	public function setYear( $year ) {
+		$this->year = $year;
+
+		return $this;
+	}
+
+	/**
+	 * Get year
+	 *
+	 * @return integer
+	 */
+	public function getYear() {
+		return $this->year;
 	}
 }

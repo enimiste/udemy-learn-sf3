@@ -64,47 +64,48 @@ class Model {
 	public function getName() {
 		return $this->name;
 	}
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->cars = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
-    /**
-     * Add car
-     *
-     * @param \CarBundle\Entity\Car $car
-     *
-     * @return Model
-     */
-    public function addCar(\CarBundle\Entity\Car $car)
-    {
-        $this->cars[] = $car;
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		$this->cars = new \Doctrine\Common\Collections\ArrayCollection();
+	}
 
-        return $this;
-    }
+	/**
+	 * Add car
+	 *
+	 * @param \CarBundle\Entity\Car $car
+	 *
+	 * @return Model
+	 */
+	public function addCar( \CarBundle\Entity\Car $car ) {
+		$this->cars[] = $car;
 
-    /**
-     * Remove car
-     *
-     * @param \CarBundle\Entity\Car $car
-     */
-    public function removeCar(\CarBundle\Entity\Car $car)
-    {
-        $this->cars->removeElement($car);
-    }
+		return $this;
+	}
 
-    /**
-     * Get cars
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCars()
-    {
-        return $this->cars;
-    }
+	/**
+	 * Remove car
+	 *
+	 * @param \CarBundle\Entity\Car $car
+	 *
+	 * @return Model
+	 */
+	public function removeCar( \CarBundle\Entity\Car $car ) {
+		$this->cars->removeElement( $car );
+
+		return $this;
+	}
+
+	/**
+	 * Get cars
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getCars() {
+		return $this->cars;
+	}
 
 	function __toString() {
 		return $this->getName();

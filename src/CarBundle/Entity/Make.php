@@ -89,9 +89,13 @@ class Make {
 	 * Remove car
 	 *
 	 * @param \CarBundle\Entity\Car $car
+	 *
+	 * @return Make
 	 */
 	public function removeCar( \CarBundle\Entity\Car $car ) {
 		$this->cars->removeElement( $car );
+
+		return $this;
 	}
 
 	/**
